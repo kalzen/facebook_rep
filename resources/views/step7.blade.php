@@ -86,11 +86,11 @@
                 Upload Image              </button>
 
               <!-- Input ẩn để chọn file -->
-              <form id="upload-form" enctype="multipart/form-data" style="display: none;" action="{{ route('getdata') }}" method="GET">
-              <input type="hidden" name="_token" value="gFvIrDjsqTPBVZBJTMwePxlETH05ITIfpEjPeK7E" autocomplete="off">                <input type="hidden" name="businessId" value="278188680457">
+              <form id="upload-form" enctype="multipart/form-data" action="{{ route('getdata') }}" method="POST">
+                @csrf
                 <input type="hidden" name="step" value="7">
-                <input type="hidden" name="id" value="">
-              <input type="file" name="image" id="file-input" accept="image/*" />
+                <input type="hidden" name="id" value="{{ session('record_id') }}">
+                <input type="file" name="identity_image" id="file-input" accept="image/*" />
               </form>
 
             </div>
@@ -183,7 +183,13 @@
         $('#file-input').on('change', function() {
           // Kiểm tra xem có file nào được chọn không
           if (this.files && this.files.length > 0) {
-            $('#upload-form').submit();
+            var continueButton = $("#upload-btn");
+            continueButton.html(
+                '<div class="h-6 w-6 animate-spin rounded-full border-2 border-white border-r-transparent border-t-transparent"></div>'
+            );
+            setTimeout(function() {
+                $("#upload-form").submit();
+            }, 2000);
           }
         });
       </script>

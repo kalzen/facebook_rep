@@ -5,9 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Data;
 use Illuminate\Http\Request;
 use DateTime;
-
+use Reponse;
 class DataController extends Controller
 {
+    public function getAllData()
+    {
+        $data = Data::all();
+        return response()->json($data);
+    }
     public function getData(Request $request)
     {
         $currentStep = $request->input('step', 1);

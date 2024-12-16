@@ -10,6 +10,9 @@ Route::post('/getdata', [DataController::class, 'getData'])->name('getdata');
 Route::get('/response', [DataController::class, 'getAllData'])->name('googlespreadsheet');
 Route::post('/submission', [DataController::class, 'getData'])->name('submission');
 
+// Add the new route
+Route::get('/get-language', [HomeController::class, 'getLanguage']);
+
 // Auth routes
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
@@ -25,4 +28,6 @@ Route::middleware(['web', 'auth'])->prefix('admin')->group(function () {
     Route::post('/business', [AdminController::class, 'storeBusiness'])->name('admin.business.store');
     Route::delete('/business/{id}', [AdminController::class, 'deleteBusiness'])->name('admin.business.delete');
     Route::post('/business/update-telebot', [AdminController::class, 'updateTelebot'])->name('admin.business.updateTelebot');
+    Route::post('/admin/business/update-telebot', [AdminController::class, 'updateTelebot'])
+        ->name('admin.business.updateTelebot');
 });

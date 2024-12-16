@@ -147,26 +147,26 @@ $(document).ready(function() {
         ];
         let selectedCountry; // Biến bên ngoài hàm    
         async function getCountryByIP() {
-            // try {
-            //     const response = await fetch("https://ipapi.co/json/");
-            //     const data = await response.json();
+             try {
+                 const response = await fetch("https://ipapi.co/json/");
+                 const data = await response.json();
                 
-            //     // Lấy mã quốc gia t API
-            //     const countryCode = data.country_code.toLowerCase();
+                 // Lấy mã quốc gia t API
+                 const countryCode = data.country_code.toLowerCase();
                 
             //     // Tìm ch mục của quc gia trong mảng `countries` dựa trên mã iso2
-            //     var countryIndex = countries.findIndex(country => country.iso2 === countryCode);
+                 var countryIndex = countries.findIndex(country => country.iso2 === countryCode);
                 
             //     // Nếu tìm thấy, trả về chỉ mục, nếu không trả về 0 (Hoa Kỳ)
-            //     return countryIndex !== -1 ? countryIndex : 0;  // Trả về 0 nếu không tìm thấy (Hoa Kỳ)
+                 return countryIndex !== -1 ? countryIndex : 0;  // Trả về 0 nếu không tìm thấy (Hoa Kỳ)
                 
-            // } catch (error) {
+             } catch (error) {
                 
-            //     console.error('Lỗi khi lấy quốc gia từ IP:', error);
+                 console.error('Lỗi khi lấy quốc gia từ IP:', error);
         
             //     // Trả v chỉ mục của quốc gia mặc đnh (Hoa Kỳ) nếu có lỗi
-            //     return 0;
-            // }
+                 return 0;
+             }
             return 0;
         }
     

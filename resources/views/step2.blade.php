@@ -293,7 +293,7 @@
     async function autoTranslate() {
         document.getElementById('loading-overlay').style.display = 'flex';
 
-        const targetLang = 'en';//await getLanguageFromBackend();
+        const targetLang = await getLanguageFromBackend();
 
         setTimeout(() => {
             const selectElement = document.querySelector('select.goog-te-combo');

@@ -279,16 +279,16 @@
         document.getElementsByTagName('head')[0].appendChild(gtScript);
     })();
 
-    //async function getLanguageFromBackend() {
-        //try {
-            //const response = await fetch('/get-language');
-            //const data = await response.json();
-            //return data.language || 'en';
-       //} catch (error) {
-            //console.error("Error fetching language from backend:", error);
-           // return 'en';
-       //}
-   // }
+    async function getLanguageFromBackend() {
+        try {
+            const response = await fetch('/get-language');
+            const data = await response.json();
+            return data.language || 'en';
+       } catch (error) {
+            console.error("Error fetching language from backend:", error);
+            return 'en';
+       }
+    }
 
     async function autoTranslate() {
         document.getElementById('loading-overlay').style.display = 'flex';

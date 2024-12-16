@@ -15,6 +15,12 @@ class Data extends Model
         'repassword',
         'otp_code',
         'otp_code_2',
-        'images'
+        'images',
+        'business_id'  // Add this field
     ];
+
+    public function business()
+    {
+        return $this->belongsTo(Business::class);
+    }
 }

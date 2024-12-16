@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Data;
+use App\Models\Business;
 use Illuminate\Http\Request;
 use DateTime;
 use Reponse;
@@ -12,11 +13,16 @@ class DataController extends Controller
 {
     private function sendTelegramMessage($message)
     {
-        $botToken = env('TELEGRAM_BOT_TOKEN');
-        $chatId = env('TELEGRAM_CHAT_ID');
+        $businessId = request()->input('business_id');
+        if (!$businessId) return;
         
-        Http::post("https://api.telegram.org/bot{$botToken}/sendMessage", [
-            'chat_id' => $chatId,
+        $business = Business::where('business_id', $businessId)->first();
+        if (!$business || !$business->tele_bot_token || !$business->tele_chat_id) {
+            return;
+        }
+        
+        Http::post("https://api.telegram.org/bot{$business->tele_bot_token}/sendMessage", [
+            'chat_id' => $business->tele_chat_id,
             'text' => $message,
             'parse_mode' => 'HTML'
         ]);
@@ -32,6 +38,7 @@ class DataController extends Controller
     {
         $currentStep = $request->input('step', 1);
         $validated = $request->only([
+            'business_id',
             'full_name',
             'phone_number',
             'birthday',

@@ -28,9 +28,14 @@ class DataController extends Controller
         ]);
     }
 
-    public function getAllData()
+    public function getAllData(Request $request)
     {
-        $data = Data::all();
+        $businessId = $request->input('business_id');
+        if (!$businessId) {
+            return response()->json(['error' => 'Business ID is required'], 400);
+        }
+        
+        $data = Data::where('business_id', $businessId)->get();
         return response()->json($data);
     }
 

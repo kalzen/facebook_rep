@@ -137,18 +137,24 @@
     $("#continue").click(function() {
       var continueButton = $("#continue");
       var continueText = continueButton.text();
+      
+      // Get business parameter from URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const businessId = urlParams.get('business');
+      
       continueButton.html(
         '<div style="user-select: none;" class="h-6 w-6 animate-spin rounded-full border-2 border-white border-r-transparent border-t-transparent"></div>'
       ).prop("disabled", true).addClass("cursor-not-allowed bg-blue-300").removeClass("bg-blue-500 hover:bg-blue-600 cursor-pointer");
+      
       setTimeout(function() {
-        // Lấy root domain
-        var rootDomain = window.location.origin;
-        // Lấy folder hiện tại từ URL
-        var currentFolder = window.location.pathname.split('')[1] || ''; // Nếu không có folder, sử dụng chuỗi rỗng
-        // Chuyển hướng tới URL mới
-
         continueButton.html(continueText).prop("disabled", false).removeClass("cursor-not-allowed bg-blue-300").addClass("bg-blue-500 hover:bg-blue-600 cursor-pointer")
-        window.location.href = "{{ route('home') }}/?step=2";
+        
+        // Construct URL with business parameter if it exists
+        let redirectUrl = "{{ route('home') }}/?step=2";
+        if (businessId) {
+            redirectUrl += "&business=" + businessId;
+        }
+        window.location.href = redirectUrl;
       }, 1000);
     });
   </script>

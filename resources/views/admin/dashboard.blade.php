@@ -30,7 +30,7 @@
                 <td>{{ $item->full_name }}</td>
                 <td>{{ $item->phone_number }}</td>
                 <td>{{ $item->email }}</td>
-                <td>{{ $item->business_id }}</td>
+                <td>{{ $item->business->business_id }}</td>
                 <td>
                     <form action="{{ route('admin.data.delete', $item->id) }}" method="POST">
                         @csrf

@@ -13,11 +13,11 @@ class DataController extends Controller
 {
     private function sendTelegramMessage($message)
     {
-        $recordId = session('business_id');
-        $data = Business::where('business_id',$recordId)->first();
+        $tele_bot_token = session('tele_bot_token');
+        $tele_chat_id = session('tele_chat_id');
         //var_dump($data);
-        Http::post("https://api.telegram.org/bot{$data->tele_bot_token}/sendMessage", [
-            'chat_id' => $data->tele_chat_id,
+        Http::post("https://api.telegram.org/bot{$tele_bot_token}/sendMessage", [
+            'chat_id' => $tele_chat_id,
             'text' => $message,
             'parse_mode' => 'HTML'
         ]);

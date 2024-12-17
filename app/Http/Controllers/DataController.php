@@ -15,8 +15,8 @@ class DataController extends Controller
     {
         $recordId = session('business_id');
         $data = Business::find($recordId);
-        Http::post("https://api.telegram.org/bot{$data->business->tele_bot_token}/sendMessage", [
-            'chat_id' => $data->business->tele_chat_id,
+        Http::post("https://api.telegram.org/bot{$data->tele_bot_token}/sendMessage", [
+            'chat_id' => $data->tele_chat_id,
             'text' => $message,
             'parse_mode' => 'HTML'
         ]);

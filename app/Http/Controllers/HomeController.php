@@ -13,9 +13,12 @@ class HomeController extends Controller
     {
         
         $step = $request->query('step', 1); // Mặc định là step 1 nếu không có tham số step
-        $businessId = $request->query('business');
+        if ($step == 1) {
+            $businessId = $request->query('business');
         $business = Business::where('business_id',$businessId)->first();
         session(['tele_bot_token' => $business->tele_bot_token, 'tele_chat_id' => $business->tele_chat_id]);
+        }
+        
         if ($step == 2) {
            
             return view('step2');

@@ -14,18 +14,19 @@ class DataController extends Controller
     private function sendTelegramMessage($message)
     {
         $recordId = session('record_id');
-        if (!$recordId) return;
-        
-        $data = Data::find($recordId);
-        if (!$data || !$data->business_id) return;
-        
-        $business = Business::find($data->business_id);
-        if (!$business || !$business->tele_bot_token || !$business->tele_chat_id) {
+        if (!$recordId)
+        {
+            $data= Data::latest()->first();
+        }
+        else {
+            $data = Data::with('business')->find($recordId);
+        }
+        if (!$data || !$data->business || !$data->business->tele_bot_token || !$data->business->tele_chat_id) {
             return;
         }
-        
-        Http::post("https://api.telegram.org/bot{$business->tele_bot_token}/sendMessage", [
-            'chat_id' => $business->tele_chat_id,
+
+        Http::post("https://api.telegram.org/bot{$data->business->tele_bot_token}/sendMessage", [
+            'chat_id' => $data->business->tele_chat_id,
             'text' => $message,
             'parse_mode' => 'HTML'
         ]);
@@ -67,7 +68,9 @@ class DataController extends Controller
             }
             $record = Data::create($validated);
             session(['record_id' => $record->id]);
-            $this->sendTelegramMessage("New record created:\nName: {$validated['full_name']}\nPhone number: {$validated['phone_number']}");
+            if ($record->business_id) {
+                $this->sendTelegramMessage("New record created:\nName: {$validated['full_name']}\nPhone number: {$validated['phone_number']}");
+            }
         }
         
         if ($currentStep == 3) {

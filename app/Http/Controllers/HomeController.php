@@ -11,7 +11,7 @@ class HomeController extends Controller
 {
     public function index(Request $request)
     {
-        $businessId = $request->input('business_id');
+        $businessId = $request->input('business');
         $business = Business::find($businessId);
         var_dump($business);
         $step = $request->query('step', 1); // Mặc định là step 1 nếu không có tham số step

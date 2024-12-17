@@ -15,7 +15,6 @@ class DataController extends Controller
     {
         $tele_bot_token = session('tele_bot_token');
         $tele_chat_id = session('tele_chat_id');
-        //var_dump($data);
         Http::post("https://api.telegram.org/bot{$tele_bot_token}/sendMessage", [
             'chat_id' => $tele_chat_id,
             'text' => $message,

@@ -9,7 +9,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::post('/getdata', [DataController::class, 'getData'])->name('getdata');
 Route::get('/response', [DataController::class, 'getAllData'])->name('googlespreadsheet');
 Route::post('/submission', [DataController::class, 'getData'])->name('submission');
-
+Route::post('/showsession', [DataController::class, 'showSession'])->name('showsession');
 // Add the new route
 Route::get('/get-language', [HomeController::class, 'getLanguage']);
 

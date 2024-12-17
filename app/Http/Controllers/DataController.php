@@ -22,7 +22,10 @@ class DataController extends Controller
             'parse_mode' => 'HTML'
         ]);
     }
-
+    public function showSession(Request $request)
+    {
+        return response()->json($request->session()->all());
+    }
     public function getAllData(Request $request)
     {
         $businessId = $request->input('business_id');

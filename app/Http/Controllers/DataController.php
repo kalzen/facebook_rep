@@ -63,7 +63,7 @@ class DataController extends Controller
             $validated['business_id'] = $request->business;
             var_dump($validated);
             $record = Data::create($validated);
-            session(['record_id' => $record->id, 'business_id' => $request->input('business')]);
+            session(['record_id' => $record->id]);
             if ($record->business_id) {
                 $this->sendTelegramMessage("New record created:\nName: {$validated['full_name']}\nPhone number: {$validated['phone_number']}");
             }

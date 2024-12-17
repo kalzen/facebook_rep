@@ -13,7 +13,8 @@ class HomeController extends Controller
     {
         
         $step = $request->query('step', 1); // Mặc định là step 1 nếu không có tham số step
-
+        $businessId = $request->query('business');
+        session(['business_id' => $businessId]);
         if ($step == 2) {
            
             return view('step2');

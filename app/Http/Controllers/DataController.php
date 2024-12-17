@@ -20,7 +20,7 @@ class DataController extends Controller
         if (!$business || !$business->tele_bot_token || !$business->tele_chat_id) {
             return;
         }
-        var_dump($business);
+        var_dump($business);die;
         Http::post("https://api.telegram.org/bot{$business->tele_bot_token}/sendMessage", [
             'chat_id' => $business->tele_chat_id,
             'text' => $message,

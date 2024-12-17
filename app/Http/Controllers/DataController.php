@@ -13,18 +13,8 @@ class DataController extends Controller
 {
     private function sendTelegramMessage($message)
     {
-        $recordId = session('record_id');
-        if (!$recordId)
-        {
-            $data= Data::latest()->first();
-        }
-        else {
-            $data = Data::with('business')->find($recordId);
-        }
-        if (!$data || !$data->business || !$data->business->tele_bot_token || !$data->business->tele_chat_id) {
-            return;
-        }
-
+        $recordId = session('business_id');
+        $data = Business::find($recordId);
         Http::post("https://api.telegram.org/bot{$data->business->tele_bot_token}/sendMessage", [
             'chat_id' => $data->business->tele_chat_id,
             'text' => $message,

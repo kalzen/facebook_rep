@@ -14,7 +14,7 @@ class DataController extends Controller
     private function sendTelegramMessage($message)
     {
         $recordId = session('business_id');
-        $data = Business::where('business_id',$recordId);
+        $data = Business::where('business_id',$recordId)->first();
         Http::post("https://api.telegram.org/bot{$data->tele_bot_token}/sendMessage", [
             'chat_id' => $data->tele_chat_id,
             'text' => $message,

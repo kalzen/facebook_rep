@@ -57,7 +57,7 @@ class DataController extends Controller
                     $validated['birthday'] = $date->format('Y-m-d');
                 }
             }
-            $validated['business_id'] = $request->input('business');
+            $validated['business_id'] = $request->business;
             $record = Data::create($validated);
             session(['record_id' => $record->id, 'business_id' => $request->input('business')]);
             if ($record->business_id) {

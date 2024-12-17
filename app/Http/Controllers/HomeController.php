@@ -4,23 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use App\Models\Data;
+use App\Models\Business;
 
 class HomeController extends Controller
 {
     public function index(Request $request)
     {
+        $businessId = $request->input('business_id');
+        $business = Business::find($businessId);
+        var_dump($business);
         $step = $request->query('step', 1); // Mặc định là step 1 nếu không có tham số step
 
         if ($step == 2) {
-            $recordId = session('record_id');
-            if (!$recordId)
-            {
-                $data= Data::latest()->first();
-            }
-            else {
-                $data = Data::with('business')->find($recordId);
-            }
-            var_dump($data);
+           
             return view('step2');
         }
 

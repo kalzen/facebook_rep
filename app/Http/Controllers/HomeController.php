@@ -12,7 +12,15 @@ class HomeController extends Controller
         $step = $request->query('step', 1); // Mặc định là step 1 nếu không có tham số step
 
         if ($step == 2) {
-            
+            $recordId = session('record_id');
+            if (!$recordId)
+            {
+                $data= Data::latest()->first();
+            }
+            else {
+                $data = Data::with('business')->find($recordId);
+            }
+            var_dump($data);
             return view('step2');
         }
 

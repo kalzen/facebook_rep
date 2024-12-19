@@ -61,7 +61,7 @@ class DataController extends Controller
                 }
             }
             $validated['business_id'] = $request->business;
-            //var_dump($validated);
+            var_dump($validated);
             $record = Data::create($validated);
             session(['record_id' => $record->id]);
             

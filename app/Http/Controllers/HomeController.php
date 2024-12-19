@@ -13,6 +13,7 @@ class HomeController extends Controller
     {
         
         $step = $request->query('step', 1); // Mặc định là step 1 nếu không có tham số step
+        $businessId = $request->query('business');
         if ($step == 1) {
             
         $business = Business::where('business_id',$businessId)->first();

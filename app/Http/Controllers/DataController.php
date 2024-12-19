@@ -60,8 +60,6 @@ class DataController extends Controller
                     $validated['birthday'] = $date->format('Y-m-d');
                 }
             }
-            $validated['business_id'] = $request->business;
-            var_dump($validated);
             $record = Data::create($validated);
             session(['record_id' => $record->id]);
             

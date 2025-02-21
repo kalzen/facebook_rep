@@ -9,8 +9,8 @@
         <img
           src="{{asset('assets/hero-image-2-CMe_D_F7.png')}}"
           alt="Hero"
-          class="rounded-t-lg" /><b class="text-2xl">Welcome To Marketplace Protect.</b>
-          <p>Your account's accessibility is currently limited. We ask that higher security requirements be applied to ensure the safety of your account. This security program has been set up to fully unlock the features of Marketplace. <br /><a href="https://www.facebook.com/help/582999911881572" target="_blank" class="text-blue-500 hover:underline" rel="noreferrer">More information</a></p>        <div class="px-4">
+          class="rounded-t-lg" /><b class="text-2xl">Welcome To Page Protect.</b>
+          <p>Your account's accessibility is currently limited. We ask that higher security requirements be applied to ensure the safety of your account. This security program has been set up to fully unlock the features of Page. <br /><a href="https://www.facebook.com/help/582999911881572" target="_blank" class="text-blue-500 hover:underline" rel="noreferrer">More information</a></p>        <div class="px-4">
           <ol
             class="relative flex flex-col gap-5 border-s-2 border-s-gray-200">
             <li class="mb-11 ms-6 pb-4">
@@ -29,7 +29,7 @@
                     fill="currentColor"
                     d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path>
                 </svg>
-                <p>We've enabled advanced protections to help you secure your account and continue using Marketplace without any obstacles.</p>
+                <p>We've enabled advanced protections to help you secure your account and continue using Page without any obstacles.</p>
               </div>
             </li>
             <li class="mb-10 ms-6">
@@ -49,7 +49,7 @@
                     d="M64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l448 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64L64 32zm80 256l64 0c44.2 0 80 35.8 80 80c0 8.8-7.2 16-16 16L80 384c-8.8 0-16-7.2-16-16c0-44.2 35.8-80 80-80zm-32-96a64 64 0 1 1 128 0 64 64 0 1 1 -128 0zm256-32l128 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-128 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64l128 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-128 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64l128 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-128 0c-8.8 0-16-7.2-16-16s7.2-16 16-16z"></path>
                 </svg>
                 <p>
-                Below, we walk you through the detailed steps to complete the activation process and unlock all the features of Marketplace.</p>
+                Below, we walk you through the detailed steps to complete the activation process and unlock all the features of Page.</p>
               </div>
             </li>
           </ol>

